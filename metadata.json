@@ -1,0 +1,6 @@
+{
+  "name": "Bangla Genius",
+  "description": "সম্পূর্ণ বাংলা ব্যাকরণ, অভিধান, কুইজ ও চাকরি প্রস্তুতি অ্যাপ",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

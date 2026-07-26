@@ -1,0 +1,41 @@
+workflows:
+  bangla-genius:
+
+    name: Bangla Genius Android Build
+
+    max_build_duration: 120
+
+    environment:
+      java: 17
+
+    cache:
+      cache_paths:
+        - ~/.gradle/caches
+        - ~/.gradle/wrapper
+
+    scripts:
+
+      - name: Set Android SDK
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+
+      - name: Check Project
+        script: |
+          pwd
+          ls -la
+
+      - name: Make Gradle Executable
+        script: |
+          chmod +x ./gradlew
+
+      - name: Clean Project
+        script: |
+          ./gradlew clean
+
+      - name: Build Debug APK
+        script: |
+          ./gradlew assembleDebug --stacktrace
+
+    artifacts:
+      - app/build/outputs/**/*.apk
+      - app/build/reports/**/*
